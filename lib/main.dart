@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: RouterConfigration.router,
+      routerConfig: RouterConfigration(isAuthenticated: false).getRouter(),
     );
   }
 }
