@@ -1,5 +1,4 @@
 import 'package:go_router/go_router.dart';
-import 'package:gorouter_navigation/models/auth_data.dart';
 
 import 'package:gorouter_navigation/router/routes_constants.dart';
 import 'package:gorouter_navigation/router/routes_path.dart';
@@ -35,7 +34,7 @@ class RouterConfigration {
           path: profilePath,
           builder: (context, state) {
             return ProfileScreen(
-              user: state.extra as AuthData,
+              state: state,
             );
           },
         ),
