@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:gorouter_navigation/models/auth_data.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  final AuthData user;
+  const ProfileScreen({required this.user,  super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Center(
-        child: Text('Profile Screen'),
+      body: Center(
+        child: Column(
+          children: [
+            const Text('Profile Screen'),
+            Text(user.name),
+            Image.network(user.imageUrl),
+          ],
+        ),
       ),
     );
   }

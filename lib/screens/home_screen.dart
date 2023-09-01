@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:gorouter_navigation/router/routes_constants.dart';
+import 'package:gorouter_navigation/static/app_constants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,13 +18,13 @@ class HomeScreen extends StatelessWidget {
             const Text('Home Screen'),
             ElevatedButton(
               onPressed: () {
-                router.pushNamed(profileRoute);
+                context.goNamed(profileRoute, extra: staticUser);
               },
               child: const Text('Profile'),
             ),
             ElevatedButton(
               onPressed: () {
-                router.pushNamed(aboutRoute);
+                router.goNamed(aboutRoute, pathParameters: {'id': '1'});
               },
               child: const Text('About'),
             ),

@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:gorouter_navigation/models/auth_data.dart';
 
 import 'package:gorouter_navigation/router/routes_constants.dart';
 import 'package:gorouter_navigation/router/routes_path.dart';
@@ -24,13 +25,19 @@ class RouterConfigration {
         ),
         GoRoute(
           name: aboutRoute,
-          path: aboutPath,
-          builder: (context, state) => const AboutScreen(),
+          path: '$aboutPath/:id',
+          builder: (context, state) => AboutScreen(
+            id: int.parse(state.pathParameters['id'] ?? '0'),
+          ),
         ),
         GoRoute(
           name: profileRoute,
           path: profilePath,
-          builder: (context, state) => const ProfileScreen(),
+          builder: (context, state) {
+            return ProfileScreen(
+              user: state.extra as AuthData,
+            );
+          },
         ),
         GoRoute(
           name: contactRoute,
